@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mộc Việt - Cẩm nang chăm sóc cây cảnh, cây trong nhà và bonsai dành cho người mới." />
+  <title>Mộc Việt | Chăm cây dễ hiểu cho người mới</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="Mộc Việt - Trang chủ">
+        <span class="brand-mark">M</span>
+        <span>
+          <strong>Mộc Việt</strong>
+          <small>Sống xanh mỗi ngày</small>
+        </span>
+      </a>
+
+      <button class="menu-button" type="button" aria-label="Mở menu" aria-expanded="false">☰</button>
+
+      <nav class="main-nav" aria-label="Điều hướng chính">
+        <a href="#thu-vien">Thư viện cây</a>
+        <a href="#chan-doan">Cây đang bị gì?</a>
+        <a href="#bonsai">Bonsai</a>
+        <a href="#bai-viet">Kiến thức</a>
+        <a href="#dung-cu">Dụng cụ</a>
+      </nav>
+
+      <a class="nav-cta" href="#chan-doan">Kiểm tra cây</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Cẩm nang cây cảnh dành cho người mới</span>
+          <h1>Hiểu cây hơn.<br /><span>Chăm cây đúng cách.</span></h1>
+          <p>
+            Tra cứu cách chăm cây, nhận biết nguyên nhân vàng lá, héo, thối rễ
+            và tìm hướng xử lý phù hợp với khí hậu Việt Nam.
+          </p>
+
+          <form class="plant-search" action="#thu-vien">
+            <label class="sr-only" for="plant-keyword">Tìm kiếm cây</label>
+            <input id="plant-keyword" type="search" placeholder="Tìm tên cây hoặc triệu chứng..." />
+            <button type="submit">Tìm kiếm</button>
+          </form>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#chan-doan">Cây của tôi bị gì?</a>
+            <a class="button button-light" href="#thu-vien">Khám phá thư viện cây</a>
+          </div>
+
+          <div class="trust-row" aria-label="Điểm nổi bật">
+            <span>✓ Dễ hiểu cho người mới</span>
+            <span>✓ Theo khí hậu Việt Nam</span>
+            <span>✓ Không quảng cáo tràn lan</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Minh họa cây cảnh và bonsai">
+          <div class="visual-card visual-card-main">
+            <img src="https://images.unsplash.com/photo-1614594575810-2ed9e67dc8a3?auto=format&fit=crop&w=1000&q=85" alt="Một chậu bonsai xanh đặt trong không gian sáng" />
+          </div>
+          <div class="floating-card floating-top">
+            <span class="floating-icon">☀</span>
+            <div><strong>Ánh sáng</strong><small>Sáng gián tiếp</small></div>
+          </div>
+          <div class="floating-card floating-bottom">
+            <span class="floating-icon">💧</span>
+            <div><strong>Lịch tưới</strong><small>Kiểm tra sau 3 ngày</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quick-help" id="chan-doan">
+      <div class="container">
+        <div class="section-heading centered">
+          <span class="eyebrow">Xử lý nhanh</span>
+          <h2>Cây của bạn đang gặp vấn đề gì?</h2>
+          <p>Chọn biểu hiện gần nhất để xem các nguyên nhân thường gặp và cách khắc phục.</p>
+        </div>
+
+        <div class="problem-grid">
+          <a class="problem-card" href="#">
+            <span class="problem-icon">🍂</span>
+            <strong>Vàng lá</strong>
+            <small>Tưới sai, thiếu sáng hoặc vấn đề ở rễ</small>
+          </a>
+          <a class="problem-card" href="#">
+            <span class="problem-icon">🥀</span>
+            <strong>Cây bị héo</strong>
+            <small>Kiểm tra nước, nhiệt độ và bộ rễ</small>
+          </a>
+          <a class="problem-card" href="#">
+            <span class="problem-icon">🪴</span>
+            <strong>Thối rễ</strong>
+            <small>Nhận biết sớm và cứu cây đúng cách</small>
+          </a>
+          <a class="problem-card" href="#">
+            <span class="problem-icon">🐛</span>
+            <strong>Sâu và rệp</strong>
+            <small>Cách xử lý an toàn cho cây trong nhà</small>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section plant-library" id="thu-vien">
+      <div class="container">
+        <div class="section-heading heading-row">
+          <div>
+            <span class="eyebrow">Thư viện cây</span>
+            <h2>Bắt đầu với những loại cây phổ biến</h2>
+          </div>
+          <a class="text-link" href="#">Xem tất cả cây →</a>
+        </div>
+
+        <div class="plant-grid">
+          <article class="plant-card">
+            <div class="plant-image">
+              <img src="https://images.unsplash.com/photo-1593691509543-c55fb32e5cee?auto=format&fit=crop&w=800&q=80" alt="Cây trầu bà xanh trong nhà" />
+              <span class="difficulty easy">Dễ chăm</span>
+            </div>
+            <div class="plant-content">
+              <h3>Trầu bà</h3>
+              <p>Phù hợp trong nhà, phát triển nhanh và dễ nhân giống.</p>
+              <div class="plant-meta"><span>☀ Ít sáng</span><span>💧 5–7 ngày</span></div>
+            </div>
+          </article>
+
+          <article class="plant-card">
+            <div class="plant-image">
+              <img src="https://images.unsplash.com/photo-1593482892290-f54927ae2bb1?auto=format&fit=crop&w=800&q=80" alt="Cây lưỡi hổ trong chậu" />
+              <span class="difficulty easy">Dễ chăm</span>
+            </div>
+            <div class="plant-content">
+              <h3>Lưỡi hổ</h3>
+              <p>Chịu hạn tốt, phù hợp phòng ngủ và người bận rộn.</p>
+              <div class="plant-meta"><span>☀ Linh hoạt</span><span>💧 10–14 ngày</span></div>
+            </div>
+          </article>
+
+          <article class="plant-card">
+            <div class="plant-image">
+              <img src="https://images.unsplash.com/photo-1509423350716-97f2360af8e4?auto=format&fit=crop&w=800&q=80" alt="Cây cảnh lá xanh bên cửa sổ" />
+              <span class="difficulty medium">Trung bình</span>
+            </div>
+            <div class="plant-content">
+              <h3>Kim tiền</h3>
+              <p>Cây cảnh nội thất được yêu thích, cần chú ý tránh úng rễ.</p>
+              <div class="plant-meta"><span>☀ Gián tiếp</span><span>💧 7–10 ngày</span></div>
+            </div>
+          </article>
+
+          <article class="plant-card">
+            <div class="plant-image">
+              <img src="https://images.unsplash.com/photo-1614594075929-b84615b3ad4c?auto=format&fit=crop&w=800&q=80" alt="Một cây bonsai nhỏ được tạo dáng" />
+              <span class="difficulty medium">Trung bình</span>
+            </div>
+            <div class="plant-content">
+              <h3>Bonsai cho người mới</h3>
+              <p>Làm quen với tưới nước, cắt tỉa và tạo dáng cơ bản.</p>
+              <div class="plant-meta"><span>☀ Nắng nhẹ</span><span>✂ Cắt tỉa</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section seasonal" id="bonsai">
+      <div class="container seasonal-grid">
+        <div class="seasonal-image">
+          <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=1200&q=85" alt="Người đang chăm sóc cây trong vườn" />
+        </div>
+        <div class="seasonal-content">
+          <span class="eyebrow">Chăm cây theo mùa</span>
+          <h2>Tháng này cần lưu ý gì cho khu vườn?</h2>
+          <p>
+            Lịch chăm cây được điều chỉnh theo thời tiết và khí hậu từng vùng,
+            giúp bạn biết khi nào nên tưới, bón phân, cắt tỉa hoặc thay chậu.
+          </p>
+          <ul class="check-list">
+            <li>Kiểm tra khả năng thoát nước trong mùa mưa</li>
+            <li>Giảm tưới khi độ ẩm không khí tăng cao</li>
+            <li>Quan sát nấm trắng và sâu bệnh ở mặt dưới lá</li>
+          </ul>
+          <a class="button button-primary" href="#">Xem lịch chăm cây tháng này</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section articles" id="bai-viet">
+      <div class="container">
+        <div class="section-heading heading-row">
+          <div>
+            <span class="eyebrow">Kiến thức mới</span>
+            <h2>Bài viết dành cho người mới</h2>
+          </div>
+          <a class="text-link" href="#">Xem tất cả bài viết →</a>
+        </div>
+
+        <div class="article-grid">
+          <article class="article-card article-featured">
+            <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1200&q=85" alt="Bàn làm vườn với các chậu cây xanh" />
+            <div class="article-overlay">
+              <span>Hướng dẫn cơ bản</span>
+              <h3>7 lỗi khiến người mới chăm cây mãi không khỏe</h3>
+              <a href="#">Đọc bài viết →</a>
+            </div>
+          </article>
+
+          <div class="article-list">
+            <article class="article-small">
+              <img src="https://images.unsplash.com/photo-1610448721566-47369c768e70?auto=format&fit=crop&w=500&q=80" alt="Lá cây bị vàng" />
+              <div><span>Bệnh cây</span><h3>Cây bị vàng lá: đừng vội tưới thêm nước</h3><small>6 phút đọc</small></div>
+            </article>
+            <article class="article-small">
+              <img src="https://images.unsplash.com/photo-1592150621744-aca64f48394a?auto=format&fit=crop&w=500&q=80" alt="Các dụng cụ làm vườn cơ bản" />
+              <div><span>Dụng cụ</span><h3>Bộ dụng cụ tối thiểu cho người mới trồng cây</h3><small>5 phút đọc</small></div>
+            </article>
+            <article class="article-small">
+              <img src="https://images.unsplash.com/photo-1614594575810-2ed9e67dc8a3?auto=format&fit=crop&w=500&q=80" alt="Cây bonsai được chăm sóc kỹ lưỡng" />
+              <div><span>Bonsai</span><h3>Cách tưới bonsai đúng mà không làm úng rễ</h3><small>8 phút đọc</small></div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tools-section" id="dung-cu">
+      <div class="container tools-box">
+        <div>
+          <span class="eyebrow eyebrow-light">Dụng cụ phù hợp</span>
+          <h2>Chỉ mua những gì cây thật sự cần</h2>
+          <p>
+            Các dụng cụ được gợi ý theo từng tình huống chăm cây, kèm giải thích
+            rõ ai nên mua và khi nào chưa cần mua.
+          </p>
+        </div>
+        <a class="button button-white" href="#">Xem dụng cụ cơ bản</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="#top">
+          <span class="brand-mark">M</span>
+          <span><strong>Mộc Việt</strong><small>Sống xanh mỗi ngày</small></span>
+        </a>
+        <p>Cẩm nang chăm cây cảnh và bonsai dễ hiểu dành cho người Việt.</p>
+      </div>
+      <div><strong>Khám phá</strong><a href="#thu-vien">Thư viện cây</a><a href="#chan-doan">Chẩn đoán cây</a><a href="#bonsai">Bonsai</a></div>
+      <div><strong>Nội dung</strong><a href="#bai-viet">Kiến thức</a><a href="#dung-cu">Dụng cụ</a><a href="#">Lịch chăm cây</a></div>
+      <div><strong>Kết nối</strong><a href="#">Facebook</a><a href="#">TikTok</a><a href="#">Liên hệ</a></div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="current-year"></span> Mộc Việt. Nội dung đang trong giai đoạn xây dựng.</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
