@@ -120,6 +120,20 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
+// Hiển thị nút tài khoản ngay trên trang chủ.
+const headerActions = document.querySelector('.header-actions');
+if (headerActions && !document.querySelector('.login-link')) {
+  const loginLink = document.createElement('a');
+  loginLink.className = 'login-link';
+  loginLink.href = 'login.html';
+  loginLink.textContent = 'Đăng nhập';
+  loginLink.setAttribute('aria-label', 'Đăng nhập tài khoản');
+  loginLink.style.cssText = 'display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 14px;border:1px solid rgba(157,187,143,.35);border-radius:999px;color:inherit;text-decoration:none;font-size:13px;font-weight:700;white-space:nowrap;transition:background .2s ease,transform .2s ease;';
+  loginLink.addEventListener('mouseenter', () => { loginLink.style.background = 'rgba(157,187,143,.12)'; });
+  loginLink.addEventListener('mouseleave', () => { loginLink.style.background = 'transparent'; });
+  headerActions.insertBefore(loginLink, headerActions.firstChild);
+}
+
 // Một số ảnh mẫu Unsplash trước đây đã bị gỡ và trả về 404.
 // Thay ngay các URL đó bằng ảnh còn hoạt động trước khi trình duyệt hiển thị biểu tượng ảnh lỗi.
 const brokenImageReplacements = [
