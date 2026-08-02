@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://cay-sao-roi.vercel.app/sitemap.xml
