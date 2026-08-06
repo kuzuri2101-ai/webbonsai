@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bonsai Việt — Quản trị</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="index.html">Bonsai Việt</a>
+    <div class="brand-sub">QUẢN TRỊ NỘI DUNG</div>
+    <nav>
+      <a class="nav-item active" href="#dashboard">Tổng quan</a>
+      <a class="nav-item" href="#plants">🌳 Cây bonsai</a>
+      <a class="nav-item disabled">🔧 Kỹ thuật</a>
+      <a class="nav-item disabled">🌿 Dáng cây</a>
+      <a class="nav-item disabled">🎎 Trường phái</a>
+      <a class="nav-item disabled">👨‍🌾 Nghệ nhân</a>
+      <a class="nav-item disabled">🏆 Tác phẩm</a>
+      <a class="nav-item disabled">📅 Triển lãm</a>
+      <a class="nav-item disabled">📝 Bài viết</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <a href="index.html">← Về website</a>
+      <button id="logoutBtn" type="button">Đăng xuất</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">BÁCH KHOA TOÀN THƯ KỸ THUẬT BONSAI VIỆT</div>
+        <h1 id="pageTitle">Tổng quan</h1>
+      </div>
+      <div class="account" id="accountInfo">Đang kiểm tra tài khoản…</div>
+    </header>
+
+    <section id="dashboard" class="view active-view">
+      <div class="hero-card">
+        <div>
+          <span class="pill">MVP ADMIN</span>
+          <h2>Xây kho tri thức Bonsai Việt</h2>
+          <p>Quản lý dữ liệu nền trước khi mở rộng thành thư viện kỹ thuật, lịch triển lãm và không gian tác phẩm.</p>
+        </div>
+        <button class="primary" data-go="plants">Quản lý cây →</button>
+      </div>
+      <div class="stats" id="stats"></div>
+    </section>
+
+    <section id="plants" class="view">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">DATABASE</div>
+          <h2>Loài cây</h2>
+        </div>
+        <button class="primary" id="newPlantBtn">+ Thêm cây</button>
+      </div>
+      <div class="toolbar">
+        <input id="searchInput" type="search" placeholder="Tìm tên cây, tên khoa học…">
+        <select id="statusFilter">
+          <option value="">Tất cả trạng thái</option>
+          <option value="PUBLISHED">Đã xuất bản</option>
+          <option value="DRAFT">Bản nháp</option>
+          <option value="ARCHIVED">Lưu trữ</option>
+        </select>
+      </div>
+      <div id="plantList" class="table-card">Đang tải dữ liệu…</div>
+    </section>
+  </main>
+
+  <dialog id="plantDialog">
+    <form method="dialog" id="plantForm" class="modal-form">
+      <div class="modal-head">
+        <div>
+          <div class="eyebrow">CONTENT</div>
+          <h2 id="dialogTitle">Thêm loài cây</h2>
+        </div>
+        <button class="icon-btn" value="cancel" aria-label="Đóng">×</button>
+      </div>
+      <input type="hidden" id="plantId">
+      <label>Tên cây<input id="plantName" required maxlength="120"></label>
+      <label>Tên khoa học<input id="scientificName" maxlength="160"></label>
+      <label>Slug<input id="plantSlug" required maxlength="160" placeholder="mai-vang"></label>
+      <label>Mô tả ngắn<textarea id="shortDescription" rows="3"></textarea></label>
+      <div class="grid-2">
+        <label>Độ khó
+          <select id="difficulty"><option value="BEGINNER">Cơ bản</option><option value="INTERMEDIATE">Trung cấp</option><option value="ADVANCED">Nâng cao</option></select>
+        </label>
+        <label>Trạng thái
+          <select id="status"><option value="DRAFT">Bản nháp</option><option value="PUBLISHED">Đã xuất bản</option><option value="ARCHIVED">Lưu trữ</option><option value="HIDDEN">Ẩn</option></select>
+        </label>
+      </div>
+      <label>Ảnh đại diện<input id="featuredImage" type="url" placeholder="https://…"></label>
+      <label>Mô tả chi tiết<textarea id="description" rows="7"></textarea></label>
+      <div id="formError" class="form-error"></div>
+      <div class="modal-actions"><button class="secondary" value="cancel">Hủy</button><button class="primary" id="savePlantBtn" value="default">Lưu cây</button></div>
+    </form>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
