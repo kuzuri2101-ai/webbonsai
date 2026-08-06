@@ -14,8 +14,8 @@
       <a class="nav-item active" href="#dashboard">Tổng quan</a>
       <a class="nav-item" href="#plants">🌳 Cây bonsai</a>
       <a class="nav-item" href="#techniques">🔧 Kỹ thuật</a>
-      <a class="nav-item disabled">🌿 Dáng cây</a>
-      <a class="nav-item disabled">🎎 Trường phái</a>
+      <a class="nav-item" href="#forms">🌿 Dáng cây</a>
+      <a class="nav-item" href="#styles">🎎 Trường phái</a>
       <a class="nav-item disabled">👨‍🌾 Nghệ nhân</a>
       <a class="nav-item disabled">🏆 Tác phẩm</a>
       <a class="nav-item disabled">📅 Triển lãm</a>
@@ -49,84 +49,41 @@
     </section>
 
     <section id="plants" class="view">
-      <div class="section-head">
-        <div><div class="eyebrow">DATABASE</div><h2>Loài cây</h2></div>
-        <button class="primary" id="newPlantBtn">+ Thêm cây</button>
-      </div>
-      <div class="toolbar">
-        <input id="searchInput" type="search" placeholder="Tìm tên cây, tên khoa học…">
-        <select id="statusFilter"><option value="">Tất cả trạng thái</option><option value="PUBLISHED">Đã xuất bản</option><option value="DRAFT">Bản nháp</option><option value="ARCHIVED">Lưu trữ</option></select>
-      </div>
+      <div class="section-head"><div><div class="eyebrow">DATABASE</div><h2>Loài cây</h2></div><button class="primary" id="newPlantBtn">+ Thêm cây</button></div>
+      <div class="toolbar"><input id="searchInput" type="search" placeholder="Tìm tên cây, tên khoa học…"><select id="statusFilter"><option value="">Tất cả trạng thái</option><option value="PUBLISHED">Đã xuất bản</option><option value="DRAFT">Bản nháp</option><option value="ARCHIVED">Lưu trữ</option></select></div>
       <div id="plantList" class="table-card">Đang tải dữ liệu…</div>
     </section>
 
     <section id="techniques" class="view">
-      <div class="section-head">
-        <div><div class="eyebrow">KNOWLEDGE BASE</div><h2>Kỹ thuật bonsai</h2><p>Quản lý nội dung hướng dẫn theo từng bước.</p></div>
-        <button class="primary" id="newTechniqueBtn">+ Thêm kỹ thuật</button>
-      </div>
-      <div class="toolbar">
-        <input id="techSearchInput" type="search" placeholder="Tìm kỹ thuật, danh mục…">
-        <select id="techStatusFilter"><option value="">Tất cả trạng thái</option><option value="PUBLISHED">Đã xuất bản</option><option value="DRAFT">Bản nháp</option><option value="ARCHIVED">Lưu trữ</option><option value="HIDDEN">Ẩn</option></select>
-        <select id="techDifficultyFilter"><option value="">Mọi độ khó</option><option value="BEGINNER">Cơ bản</option><option value="INTERMEDIATE">Trung cấp</option><option value="ADVANCED">Nâng cao</option></select>
-      </div>
+      <div class="section-head"><div><div class="eyebrow">KNOWLEDGE BASE</div><h2>Kỹ thuật bonsai</h2><p>Quản lý nội dung hướng dẫn theo từng bước.</p></div><button class="primary" id="newTechniqueBtn">+ Thêm kỹ thuật</button></div>
+      <div class="toolbar"><input id="techSearchInput" type="search" placeholder="Tìm kỹ thuật, danh mục…"><select id="techStatusFilter"><option value="">Tất cả trạng thái</option><option value="PUBLISHED">Đã xuất bản</option><option value="DRAFT">Bản nháp</option><option value="ARCHIVED">Lưu trữ</option><option value="HIDDEN">Ẩn</option></select><select id="techDifficultyFilter"><option value="">Mọi độ khó</option><option value="BEGINNER">Cơ bản</option><option value="INTERMEDIATE">Trung cấp</option><option value="ADVANCED">Nâng cao</option></select></div>
       <div id="techniqueList" class="table-card">Đang tải dữ liệu…</div>
+    </section>
+
+    <section id="forms" class="view">
+      <div class="section-head"><div><div class="eyebrow">STYLE LIBRARY</div><h2>Dáng cây</h2><p>Quản lý hệ thống dáng bonsai để liên kết với cây và tác phẩm.</p></div><button class="primary" id="newFormBtn">+ Thêm dáng</button></div>
+      <div class="toolbar"><input id="formSearchInput" type="search" placeholder="Tìm tên dáng…"><select id="formStatusFilter"><option value="">Tất cả trạng thái</option><option value="PUBLISHED">Đã xuất bản</option><option value="DRAFT">Bản nháp</option><option value="ARCHIVED">Lưu trữ</option><option value="HIDDEN">Ẩn</option></select></div>
+      <div id="formList" class="table-card">Đang tải dữ liệu…</div>
+    </section>
+
+    <section id="styles" class="view">
+      <div class="section-head"><div><div class="eyebrow">STYLE LIBRARY</div><h2>Trường phái</h2><p>Quản lý phong cách, vùng miền và nguồn gốc thẩm mỹ.</p></div><button class="primary" id="newStyleBtn">+ Thêm trường phái</button></div>
+      <div class="toolbar"><input id="styleSearchInput" type="search" placeholder="Tìm trường phái, quốc gia…"><select id="styleStatusFilter"><option value="">Tất cả trạng thái</option><option value="PUBLISHED">Đã xuất bản</option><option value="DRAFT">Bản nháp</option><option value="ARCHIVED">Lưu trữ</option><option value="HIDDEN">Ẩn</option></select></div>
+      <div id="styleList" class="table-card">Đang tải dữ liệu…</div>
     </section>
   </main>
 
-  <dialog id="plantDialog">
-    <form method="dialog" id="plantForm" class="modal-form">
-      <div class="modal-head"><div><div class="eyebrow">CONTENT</div><h2 id="dialogTitle">Thêm loài cây</h2></div><button class="icon-btn" value="cancel" aria-label="Đóng">×</button></div>
-      <label>Tên cây<input id="plantName" required maxlength="120"></label>
-      <label>Tên khoa học<input id="scientificName" maxlength="160"></label>
-      <label>Slug<input id="plantSlug" required maxlength="160" placeholder="mai-vang"></label>
-      <label>Mô tả ngắn<textarea id="shortDescription" rows="3"></textarea></label>
-      <div class="grid-2">
-        <label>Độ khó<select id="difficulty"><option value="BEGINNER">Cơ bản</option><option value="INTERMEDIATE">Trung cấp</option><option value="ADVANCED">Nâng cao</option></select></label>
-        <label>Trạng thái<select id="status"><option value="DRAFT">Bản nháp</option><option value="PUBLISHED">Đã xuất bản</option><option value="ARCHIVED">Lưu trữ</option><option value="HIDDEN">Ẩn</option></select></label>
-      </div>
-      <label>Ảnh đại diện<input id="featuredImage" type="url" placeholder="https://…"></label>
-      <label>Mô tả chi tiết<textarea id="description" rows="7"></textarea></label>
-      <div id="formError" class="form-error"></div>
-      <div class="modal-actions"><button class="secondary" value="cancel">Hủy</button><button class="primary" value="default">Lưu cây</button></div>
-    </form>
-  </dialog>
+  <dialog id="plantDialog"><form method="dialog" id="plantForm" class="modal-form"><div class="modal-head"><div><div class="eyebrow">CONTENT</div><h2 id="dialogTitle">Thêm loài cây</h2></div><button class="icon-btn" value="cancel" aria-label="Đóng">×</button></div><label>Tên cây<input id="plantName" required maxlength="120"></label><label>Tên khoa học<input id="scientificName" maxlength="160"></label><label>Slug<input id="plantSlug" required maxlength="160" placeholder="mai-vang"></label><label>Mô tả ngắn<textarea id="shortDescription" rows="3"></textarea></label><div class="grid-2"><label>Độ khó<select id="difficulty"><option value="BEGINNER">Cơ bản</option><option value="INTERMEDIATE">Trung cấp</option><option value="ADVANCED">Nâng cao</option></select></label><label>Trạng thái<select id="status"><option value="DRAFT">Bản nháp</option><option value="PUBLISHED">Đã xuất bản</option><option value="ARCHIVED">Lưu trữ</option><option value="HIDDEN">Ẩn</option></select></label></div><label>Ảnh đại diện<input id="featuredImage" type="url" placeholder="https://…"></label><label>Mô tả chi tiết<textarea id="description" rows="7"></textarea></label><div id="formError" class="form-error"></div><div class="modal-actions"><button class="secondary" value="cancel">Hủy</button><button class="primary" value="default">Lưu cây</button></div></form></dialog>
 
-  <dialog id="techniqueDialog">
-    <form method="dialog" id="techniqueForm" class="modal-form wide-modal">
-      <div class="modal-head"><div><div class="eyebrow">TECHNIQUE</div><h2 id="techniqueDialogTitle">Thêm kỹ thuật</h2></div><button class="icon-btn" value="cancel" aria-label="Đóng">×</button></div>
-      <div class="grid-2">
-        <label>Tên kỹ thuật<input id="techniqueName" required maxlength="160"></label>
-        <label>Slug<input id="techniqueSlug" required maxlength="180" placeholder="uon-canh-bang-day"></label>
-      </div>
-      <div class="grid-2">
-        <label>Danh mục<select id="techniqueCategory"><option value="WIRING">Uốn dây</option><option value="PRUNING">Cắt tỉa</option><option value="ROOT">Rễ / Nebari</option><option value="DEADWOOD">Lũa / Jin</option><option value="REPOTTING">Thay chậu</option><option value="GRAFTING">Ghép</option><option value="PROPAGATION">Nhân giống</option><option value="OTHER">Khác</option></select></label>
-        <label>Độ khó<select id="techniqueDifficulty"><option value="BEGINNER">Cơ bản</option><option value="INTERMEDIATE">Trung cấp</option><option value="ADVANCED">Nâng cao</option></select></label>
-      </div>
-      <div class="grid-2">
-        <label>Thời điểm / mùa phù hợp<input id="bestSeason"></label>
-        <label>Trạng thái<select id="techniqueStatus"><option value="DRAFT">Bản nháp</option><option value="PUBLISHED">Đã xuất bản</option><option value="ARCHIVED">Lưu trữ</option><option value="HIDDEN">Ẩn</option></select></label>
-      </div>
-      <label>Mô tả<textarea id="techniqueDescription" rows="4"></textarea></label>
-      <div class="grid-2">
-        <label>Dụng cụ<textarea id="toolsRequired" rows="4"></textarea></label>
-        <label>An toàn / cảnh báo<textarea id="safetyNotes" rows="4"></textarea></label>
-      </div>
-      <div class="grid-2">
-        <label>Lỗi thường gặp<textarea id="commonMistakes" rows="4"></textarea></label>
-        <label>Mẹo nghệ nhân<textarea id="expertTips" rows="4"></textarea></label>
-      </div>
-      <div class="steps-editor">
-        <div class="section-head"><div><h3>Các bước thực hiện</h3><p>Thứ tự bước sẽ được lưu riêng để sau này hiển thị thành bài hướng dẫn.</p></div><button type="button" class="secondary" id="addStepBtn">+ Thêm bước</button></div>
-        <div id="stepsEditor"></div>
-      </div>
-      <div id="techniqueFormError" class="form-error"></div>
-      <div class="modal-actions"><button class="secondary" value="cancel">Hủy</button><button class="primary" value="default">Lưu kỹ thuật</button></div>
-    </form>
-  </dialog>
+  <dialog id="techniqueDialog"><form method="dialog" id="techniqueForm" class="modal-form wide-modal"><div class="modal-head"><div><div class="eyebrow">TECHNIQUE</div><h2 id="techniqueDialogTitle">Thêm kỹ thuật</h2></div><button class="icon-btn" value="cancel" aria-label="Đóng">×</button></div><div class="grid-2"><label>Tên kỹ thuật<input id="techniqueName" required maxlength="160"></label><label>Slug<input id="techniqueSlug" required maxlength="180" placeholder="uon-canh-bang-day"></label></div><div class="grid-2"><label>Danh mục<select id="techniqueCategory"><option value="WIRING">Uốn dây</option><option value="PRUNING">Cắt tỉa</option><option value="ROOT">Rễ / Nebari</option><option value="DEADWOOD">Lũa / Jin</option><option value="REPOTTING">Thay chậu</option><option value="GRAFTING">Ghép</option><option value="PROPAGATION">Nhân giống</option><option value="OTHER">Khác</option></select></label><label>Độ khó<select id="techniqueDifficulty"><option value="BEGINNER">Cơ bản</option><option value="INTERMEDIATE">Trung cấp</option><option value="ADVANCED">Nâng cao</option></select></label></div><div class="grid-2"><label>Thời điểm / mùa phù hợp<input id="bestSeason"></label><label>Trạng thái<select id="techniqueStatus"><option value="DRAFT">Bản nháp</option><option value="PUBLISHED">Đã xuất bản</option><option value="ARCHIVED">Lưu trữ</option><option value="HIDDEN">Ẩn</option></select></label></div><label>Mô tả<textarea id="techniqueDescription" rows="4"></textarea></label><div class="grid-2"><label>Dụng cụ<textarea id="toolsRequired" rows="4"></textarea></label><label>An toàn / cảnh báo<textarea id="safetyNotes" rows="4"></textarea></label></div><div class="grid-2"><label>Lỗi thường gặp<textarea id="commonMistakes" rows="4"></textarea></label><label>Mẹo nghệ nhân<textarea id="expertTips" rows="4"></textarea></label></div><div class="steps-editor"><div class="section-head"><div><h3>Các bước thực hiện</h3><p>Thứ tự bước sẽ được lưu riêng để sau này hiển thị thành bài hướng dẫn.</p></div><button type="button" class="secondary" id="addStepBtn">+ Thêm bước</button></div><div id="stepsEditor"></div></div><div id="techniqueFormError" class="form-error"></div><div class="modal-actions"><button class="secondary" value="cancel">Hủy</button><button class="primary" value="default">Lưu kỹ thuật</button></div></form></dialog>
+
+  <dialog id="formDialog"><form method="dialog" id="formDataForm" class="modal-form"><div class="modal-head"><div><div class="eyebrow">FORM</div><h2 id="formDialogTitle">Thêm dáng cây</h2></div><button class="icon-btn" value="cancel">×</button></div><label>Tên dáng<input id="formName" required maxlength="160"></label><label>Slug<input id="formSlug" required maxlength="180"></label><label>Mô tả<textarea id="formDescription" rows="4"></textarea></label><div class="grid-2"><label>Đặc điểm<textarea id="formCharacteristics" rows="4"></textarea></label><label>Cấu trúc<textarea id="formStructure" rows="4"></textarea></label></div><div class="grid-2"><label>Độ khó<select id="formDifficulty"><option value="BEGINNER">Cơ bản</option><option value="INTERMEDIATE">Trung cấp</option><option value="ADVANCED">Nâng cao</option></select></label><label>Trạng thái<select id="formStatus"><option value="DRAFT">Bản nháp</option><option value="PUBLISHED">Đã xuất bản</option><option value="ARCHIVED">Lưu trữ</option><option value="HIDDEN">Ẩn</option></select></label></div><div id="formDataError" class="form-error"></div><div class="modal-actions"><button class="secondary" value="cancel">Hủy</button><button class="primary" value="default">Lưu dáng</button></div></form></dialog>
+
+  <dialog id="styleDialog"><form method="dialog" id="styleDataForm" class="modal-form"><div class="modal-head"><div><div class="eyebrow">STYLE</div><h2 id="styleDialogTitle">Thêm trường phái</h2></div><button class="icon-btn" value="cancel">×</button></div><label>Tên trường phái<input id="styleName" required maxlength="160"></label><label>Slug<input id="styleSlug" required maxlength="180"></label><div class="grid-2"><label>Loại<select id="styleType"><option value="STYLE">Phong cách</option><option value="TRADITION">Truyền thống</option><option value="REGIONAL">Vùng miền</option></select></label><label>Quốc gia<input id="styleCountry"></label></div><label>Khu vực<input id="styleRegion"></label><label>Mô tả<textarea id="styleDescription" rows="4"></textarea></label><div class="grid-2"><label>Lịch sử<textarea id="styleHistory" rows="4"></textarea></label><label>Đặc điểm<textarea id="styleCharacteristics" rows="4"></textarea></label></div><label>Triết lý<textarea id="stylePhilosophy" rows="3"></textarea></label><label>Trạng thái<select id="styleStatus"><option value="DRAFT">Bản nháp</option><option value="PUBLISHED">Đã xuất bản</option><option value="ARCHIVED">Lưu trữ</option><option value="HIDDEN">Ẩn</option></select></label><div id="styleDataError" class="form-error"></div><div class="modal-actions"><button class="secondary" value="cancel">Hủy</button><button class="primary" value="default">Lưu trường phái</button></div></form></dialog>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="supabase-config.js"></script>
   <script src="admin.js"></script>
+  <script src="admin-taxonomy.js"></script>
 </body>
 </html>
