@@ -13,7 +13,7 @@
     <nav>
       <a class="nav-item active" href="#dashboard">Tổng quan</a>
       <a class="nav-item" href="#plants">🌳 Cây bonsai</a>
-      <a class="nav-item disabled">🔧 Kỹ thuật</a>
+      <a class="nav-item" href="#techniques">🔧 Kỹ thuật</a>
       <a class="nav-item disabled">🌿 Dáng cây</a>
       <a class="nav-item disabled">🎎 Trường phái</a>
       <a class="nav-item disabled">👨‍🌾 Nghệ nhân</a>
@@ -43,58 +43,85 @@
           <h2>Xây kho tri thức Bonsai Việt</h2>
           <p>Quản lý dữ liệu nền trước khi mở rộng thành thư viện kỹ thuật, lịch triển lãm và không gian tác phẩm.</p>
         </div>
-        <button class="primary" data-go="plants">Quản lý cây →</button>
+        <button class="primary" data-go="techniques">Quản lý kỹ thuật →</button>
       </div>
       <div class="stats" id="stats"></div>
     </section>
 
     <section id="plants" class="view">
       <div class="section-head">
-        <div>
-          <div class="eyebrow">DATABASE</div>
-          <h2>Loài cây</h2>
-        </div>
+        <div><div class="eyebrow">DATABASE</div><h2>Loài cây</h2></div>
         <button class="primary" id="newPlantBtn">+ Thêm cây</button>
       </div>
       <div class="toolbar">
         <input id="searchInput" type="search" placeholder="Tìm tên cây, tên khoa học…">
-        <select id="statusFilter">
-          <option value="">Tất cả trạng thái</option>
-          <option value="PUBLISHED">Đã xuất bản</option>
-          <option value="DRAFT">Bản nháp</option>
-          <option value="ARCHIVED">Lưu trữ</option>
-        </select>
+        <select id="statusFilter"><option value="">Tất cả trạng thái</option><option value="PUBLISHED">Đã xuất bản</option><option value="DRAFT">Bản nháp</option><option value="ARCHIVED">Lưu trữ</option></select>
       </div>
       <div id="plantList" class="table-card">Đang tải dữ liệu…</div>
+    </section>
+
+    <section id="techniques" class="view">
+      <div class="section-head">
+        <div><div class="eyebrow">KNOWLEDGE BASE</div><h2>Kỹ thuật bonsai</h2><p>Quản lý nội dung hướng dẫn theo từng bước.</p></div>
+        <button class="primary" id="newTechniqueBtn">+ Thêm kỹ thuật</button>
+      </div>
+      <div class="toolbar">
+        <input id="techSearchInput" type="search" placeholder="Tìm kỹ thuật, danh mục…">
+        <select id="techStatusFilter"><option value="">Tất cả trạng thái</option><option value="PUBLISHED">Đã xuất bản</option><option value="DRAFT">Bản nháp</option><option value="ARCHIVED">Lưu trữ</option><option value="HIDDEN">Ẩn</option></select>
+        <select id="techDifficultyFilter"><option value="">Mọi độ khó</option><option value="BEGINNER">Cơ bản</option><option value="INTERMEDIATE">Trung cấp</option><option value="ADVANCED">Nâng cao</option></select>
+      </div>
+      <div id="techniqueList" class="table-card">Đang tải dữ liệu…</div>
     </section>
   </main>
 
   <dialog id="plantDialog">
     <form method="dialog" id="plantForm" class="modal-form">
-      <div class="modal-head">
-        <div>
-          <div class="eyebrow">CONTENT</div>
-          <h2 id="dialogTitle">Thêm loài cây</h2>
-        </div>
-        <button class="icon-btn" value="cancel" aria-label="Đóng">×</button>
-      </div>
-      <input type="hidden" id="plantId">
+      <div class="modal-head"><div><div class="eyebrow">CONTENT</div><h2 id="dialogTitle">Thêm loài cây</h2></div><button class="icon-btn" value="cancel" aria-label="Đóng">×</button></div>
       <label>Tên cây<input id="plantName" required maxlength="120"></label>
       <label>Tên khoa học<input id="scientificName" maxlength="160"></label>
       <label>Slug<input id="plantSlug" required maxlength="160" placeholder="mai-vang"></label>
       <label>Mô tả ngắn<textarea id="shortDescription" rows="3"></textarea></label>
       <div class="grid-2">
-        <label>Độ khó
-          <select id="difficulty"><option value="BEGINNER">Cơ bản</option><option value="INTERMEDIATE">Trung cấp</option><option value="ADVANCED">Nâng cao</option></select>
-        </label>
-        <label>Trạng thái
-          <select id="status"><option value="DRAFT">Bản nháp</option><option value="PUBLISHED">Đã xuất bản</option><option value="ARCHIVED">Lưu trữ</option><option value="HIDDEN">Ẩn</option></select>
-        </label>
+        <label>Độ khó<select id="difficulty"><option value="BEGINNER">Cơ bản</option><option value="INTERMEDIATE">Trung cấp</option><option value="ADVANCED">Nâng cao</option></select></label>
+        <label>Trạng thái<select id="status"><option value="DRAFT">Bản nháp</option><option value="PUBLISHED">Đã xuất bản</option><option value="ARCHIVED">Lưu trữ</option><option value="HIDDEN">Ẩn</option></select></label>
       </div>
       <label>Ảnh đại diện<input id="featuredImage" type="url" placeholder="https://…"></label>
       <label>Mô tả chi tiết<textarea id="description" rows="7"></textarea></label>
       <div id="formError" class="form-error"></div>
-      <div class="modal-actions"><button class="secondary" value="cancel">Hủy</button><button class="primary" id="savePlantBtn" value="default">Lưu cây</button></div>
+      <div class="modal-actions"><button class="secondary" value="cancel">Hủy</button><button class="primary" value="default">Lưu cây</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="techniqueDialog">
+    <form method="dialog" id="techniqueForm" class="modal-form wide-modal">
+      <div class="modal-head"><div><div class="eyebrow">TECHNIQUE</div><h2 id="techniqueDialogTitle">Thêm kỹ thuật</h2></div><button class="icon-btn" value="cancel" aria-label="Đóng">×</button></div>
+      <div class="grid-2">
+        <label>Tên kỹ thuật<input id="techniqueName" required maxlength="160"></label>
+        <label>Slug<input id="techniqueSlug" required maxlength="180" placeholder="uon-canh-bang-day"></label>
+      </div>
+      <div class="grid-2">
+        <label>Danh mục<select id="techniqueCategory"><option value="WIRING">Uốn dây</option><option value="PRUNING">Cắt tỉa</option><option value="ROOT">Rễ / Nebari</option><option value="DEADWOOD">Lũa / Jin</option><option value="REPOTTING">Thay chậu</option><option value="GRAFTING">Ghép</option><option value="PROPAGATION">Nhân giống</option><option value="OTHER">Khác</option></select></label>
+        <label>Độ khó<select id="techniqueDifficulty"><option value="BEGINNER">Cơ bản</option><option value="INTERMEDIATE">Trung cấp</option><option value="ADVANCED">Nâng cao</option></select></label>
+      </div>
+      <div class="grid-2">
+        <label>Thời điểm / mùa phù hợp<input id="bestSeason"></label>
+        <label>Trạng thái<select id="techniqueStatus"><option value="DRAFT">Bản nháp</option><option value="PUBLISHED">Đã xuất bản</option><option value="ARCHIVED">Lưu trữ</option><option value="HIDDEN">Ẩn</option></select></label>
+      </div>
+      <label>Mô tả<textarea id="techniqueDescription" rows="4"></textarea></label>
+      <div class="grid-2">
+        <label>Dụng cụ<textarea id="toolsRequired" rows="4"></textarea></label>
+        <label>An toàn / cảnh báo<textarea id="safetyNotes" rows="4"></textarea></label>
+      </div>
+      <div class="grid-2">
+        <label>Lỗi thường gặp<textarea id="commonMistakes" rows="4"></textarea></label>
+        <label>Mẹo nghệ nhân<textarea id="expertTips" rows="4"></textarea></label>
+      </div>
+      <div class="steps-editor">
+        <div class="section-head"><div><h3>Các bước thực hiện</h3><p>Thứ tự bước sẽ được lưu riêng để sau này hiển thị thành bài hướng dẫn.</p></div><button type="button" class="secondary" id="addStepBtn">+ Thêm bước</button></div>
+        <div id="stepsEditor"></div>
+      </div>
+      <div id="techniqueFormError" class="form-error"></div>
+      <div class="modal-actions"><button class="secondary" value="cancel">Hủy</button><button class="primary" value="default">Lưu kỹ thuật</button></div>
     </form>
   </dialog>
 
