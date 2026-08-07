@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bonsai Việt — Lịch triển lãm</title>
+  <link rel="stylesheet" href="events.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="index.html" class="brand">Bonsai Việt</a>
+    <nav><a href="index.html">Trang chủ</a><a href="events.html" class="active">Triển lãm</a><a href="admin.html">Quản trị</a></nav>
+  </header>
+  <main>
+    <section class="hero"><p class="eyebrow">LỊCH SINH VẬT CẢNH TOÀN QUỐC</p><h1>Triển lãm & hội cây cảnh</h1><p>Theo dõi các sự kiện bonsai, cây cảnh và sinh vật cảnh theo thời gian và địa điểm.</p></section>
+    <section class="toolbar"><input id="search" type="search" placeholder="Tìm tên sự kiện, tỉnh/thành…"><select id="province"><option value="">Tất cả tỉnh/thành</option></select><select id="range"><option value="upcoming">Sắp diễn ra</option><option value="all">Tất cả</option><option value="past">Đã diễn ra</option></select></section>
+    <section class="layout"><div id="eventList" class="events">Đang tải…</div><aside class="map-card"><div class="map-head"><h2>Bản đồ sự kiện</h2><span id="mapCount"></span></div><div id="map" class="map"><div class="map-empty">Bản đồ sẽ hiển thị các địa điểm có tọa độ.</div></div></aside></section>
+  </main>
+  <template id="eventTemplate"><article class="event-card"><div class="date"><span class="date-day"></span><span class="date-month"></span></div><div class="event-body"><span class="event-type"></span><h2 class="event-name"></h2><p class="event-meta"></p><p class="event-description"></p><div class="actions"><a class="official" target="_blank" rel="noopener">Trang chính thức</a><a class="map-link" target="_blank" rel="noopener">Mở bản đồ</a></div></div></article></template>
+  <script src="supabase-config.js"></script>
+  <script src="events.js"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bonsai Việt — Bài viết SEO</title>
+<link rel="stylesheet" href="admin.css">
+<style>
+.article-layout{max-width:1180px;margin:0 auto;padding:28px}.article-grid{display:grid;grid-template-columns:1.6fr .8fr;gap:18px}.card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:20px;box-shadow:0 8px 24px rgba(0,0,0,.04)}label{display:block;font-weight:700;margin:0 0 14px}input,textarea,select{display:block;width:100%;box-sizing:border-box;margin-top:7px;padding:11px 12px;border:1px solid #d1d5db;border-radius:10px;font:inherit}textarea{resize:vertical}.toolbar{display:flex;gap:10px;margin:16px 0}.toolbar>*{flex:1}.row{display:flex;gap:10px;align-items:center}.row button{border:0;border-radius:9px;padding:9px 12px;cursor:pointer}.primary{background:#18281f;color:#fff}.danger{background:#fee2e2;color:#991b1b}.muted{color:#6b7280}.status{display:inline-block;padding:4px 8px;border-radius:999px;background:#f3f4f6;font-size:12px}.article-list{display:grid;gap:10px}.article-item{display:flex;justify-content:space-between;gap:16px;align-items:center;border:1px solid #e5e7eb;border-radius:12px;padding:14px}.check-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;max-height:240px;overflow:auto}.check{font-weight:500;background:#f8fafc;padding:8px;border-radius:8px}.check input{display:inline-block;width:auto;margin:0 7px 0 0}.error{color:#b91c1c;min-height:22px}@media(max-width:850px){.article-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="topbar"><div><div class="eyebrow">BONSAI VIỆT · SEO CONTENT</div><h1>Bài viết SEO</h1></div><div class="account" id="accountInfo">Đang kiểm tra tài khoản…</div></header>
+<main class="article-layout">
+<div class="row" style="justify-content:space-between"><div><a href="admin.html">← Quay lại CMS</a><p class="muted">Tạo bài viết có liên kết với cây, kỹ thuật, dáng, trường phái và tác phẩm.</p></div><button class="primary" id="newArticle">+ Bài viết mới</button></div>
+<div class="toolbar"><input id="search" type="search" placeholder="Tìm tiêu đề hoặc slug…"><select id="status"><option value="">Tất cả</option><option value="DRAFT">Bản nháp</option><option value="PUBLISHED">Đã xuất bản</option><option value="ARCHIVED">Lưu trữ</option><option value="HIDDEN">Ẩn</option></select></div>
+<section class="card"><div id="list">Đang tải…</div></section>
+</main>
+<dialog id="dialog" style="border:0;border-radius:18px;width:min(1100px,94vw);padding:0"><form id="form" class="article-layout" style="padding:24px"><div class="row" style="justify-content:space-between"><h2 id="title">Bài viết mới</h2><button type="button" id="close">×</button></div><div class="article-grid"><div class="card"><label>Tiêu đề<input id="articleTitle" required maxlength="180"></label><label>Slug<input id="slug" required maxlength="180"></label><label>Tóm tắt<textarea id="excerpt" rows="4"></textarea></label><label>Nội dung<textarea id="content" rows="18" required placeholder="Viết nội dung bài…"></textarea></label></div><div class="card"><label>Loại bài<select id="articleType"><option value="TECHNIQUE">Kỹ thuật</option><option value="PLANT_GUIDE">Cẩm nang cây</option><option value="STYLE">Trường phái</option><option value="EVENT">Triển lãm</option><option value="NEWS">Tin tức</option></select></label><label>Trạng thái<select id="articleStatus"><option value="DRAFT">Bản nháp</option><option value="PUBLISHED">Đã xuất bản</option><option value="ARCHIVED">Lưu trữ</option><option value="HIDDEN">Ẩn</option></select></label><label>Ảnh đại diện<input id="image" type="url" placeholder="https://…"></label><label>SEO title<input id="metaTitle" maxlength="180"></label><label>Meta description<textarea id="metaDescription" rows="4" maxlength="320"></textarea></label><h3>Liên kết kiến thức</h3><strong>Cây</strong><div id="plants" class="check-grid"></div><strong>Kỹ thuật</strong><div id="techniques" class="check-grid"></div><strong>Dáng</strong><div id="forms" class="check-grid"></div><strong>Trường phái</strong><div id="styles" class="check-grid"></div><strong>Tác phẩm</strong><div id="works" class="check-grid"></div></div></div><div class="error" id="error"></div><div class="row" style="justify-content:flex-end;margin-top:14px"><button type="button" id="cancel">Hủy</button><button class="primary" type="submit">Lưu bài viết</button></div></form></dialog>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase.js"></script>
+<script src="articles-admin.js"></script>
+</body></html>
