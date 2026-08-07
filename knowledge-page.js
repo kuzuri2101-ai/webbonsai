@@ -1,20 +1,20 @@
-const db = window.getSupabase ? window.getSupabase() : null;
 const params = new URLSearchParams(location.search);
 const type = params.get('type') || 'plant';
 const slug = params.get('slug') || '';
 const $ = id => document.getElementById(id);
-const esc = (v='') => String(v).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+const esc = (v='') => String(v).replace(/[&<>'\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','\"':'&quot;'}[c]));
 const link = (t,s) => `knowledge.html?type=${encodeURIComponent(t)}&slug=${encodeURIComponent(s)}`;
 const renderLinks = (items, icon, targetType, label) => `<section class="related-group"><h2>${icon} ${label}</h2><div class="related-list">${(items||[]).filter(x=>x).map(x=>`<a href="${link(targetType,x.slug)}">${esc(x.name||x.title)}</a>`).join('')||'<span class="related-empty">Chưa có nội dung liên quan.</span>'}</div></section>`;
 
 async function load(){
+  const db = window.getSupabase ? await window.getSupabase() : null;
   if(!db){ $('title').textContent='Trang kiến thức đang được cấu hình'; $('lead').textContent='Cần kết nối Supabase để tải dữ liệu xuất bản.'; $('main-content').innerHTML='<div class="notice">Cần cấu hình client Supabase chung của website.</div>'; return; }
   if(!slug){ $('title').textContent='Thiếu slug'; return; }
-  if(type==='technique') return loadTechnique();
-  return loadPlant();
+  if(type==='technique') return loadTechnique(db);
+  return loadPlant(db);
 }
 
-async function loadPlant(){
+async function loadPlant(db){
   const {data:p,error}=await db.from('bv_plants').select('*').eq('slug',slug).eq('status','PUBLISHED').maybeSingle();
   if(error||!p){ $('title').textContent='Không tìm thấy loài cây'; $('lead').textContent='Nội dung có thể chưa được xuất bản.'; return; }
   document.title=`${p.name} | Bách khoa Bonsai Việt`;
@@ -28,7 +28,7 @@ async function loadPlant(){
   const r=$('related-content'); r.innerHTML=renderLinks((techs||[]).map(x=>x.bv_techniques),'🔧','technique','Kỹ thuật liên quan')+renderLinks((articles||[]).map(x=>x.bv_articles),'📝','article','Bài viết liên quan')+renderLinks((works||[]).map(x=>x.bv_works),'🏆','work','Tác phẩm liên quan');
 }
 
-async function loadTechnique(){
+async function loadTechnique(db){
   const {data:t,error}=await db.from('bv_techniques').select('*').eq('slug',slug).eq('status','PUBLISHED').maybeSingle();
   if(error||!t){ $('title').textContent='Không tìm thấy kỹ thuật'; $('lead').textContent='Nội dung có thể chưa được xuất bản.'; return; }
   document.title=`${t.name} | Bách khoa Bonsai Việt`;
